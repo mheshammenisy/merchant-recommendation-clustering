@@ -1,5 +1,6 @@
 # src/data_pipeline.py
 
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import joblib
@@ -8,9 +9,11 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, RobustScaler
 from sklearn.impute import SimpleImputer
 
+# repo root = parent of /src
+BASE_DIR = Path(__file__).resolve().parents[1]
 
-DATA_PATH = r"C:\Clustering ML project\data\raw\Cleaned_Data_Merchant_Level_2.csv"
-PREPROCESS_PATH = r"C:\Clustering ML project\models\preprocess.joblib"
+DATA_PATH = BASE_DIR / "data" / "raw" / "Cleaned_Data_Merchant_Level_2.csv"
+PREPROCESS_PATH = BASE_DIR / "models" / "preprocess.joblib"
 
 
 def load_and_prepare_data():
@@ -30,7 +33,7 @@ def load_and_prepare_data():
     num_cols = df_model.select_dtypes(include=[np.number]).columns.tolist()
     cat_cols = df_model.select_dtypes(exclude=[np.number]).columns.tolist()
 
-    robust_cols = ["trx_vlu"]
+    robust_cols = [c for c in ["trx_vlu"] if c in num_cols]
     standard_cols = [c for c in num_cols if c not in robust_cols]
 
     numeric_robust = Pipeline([
@@ -56,6 +59,8 @@ def load_and_prepare_data():
 
     X = preprocess.fit_transform(df_model)
 
+    # Save preprocess so Streamlit can reuse if needed
+    PREPROCESS_PATH.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(preprocess, PREPROCESS_PATH)
 
     return df, X
