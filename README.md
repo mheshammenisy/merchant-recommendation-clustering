@@ -7,6 +7,9 @@ The system segments users based on behavioral patterns and recommends merchants 
 The project covers data cleaning, feature engineering, preprocessing pipelines, unsupervised learning, and deployment via Streamlit.
 
 ---
+# 🚀 Live Demo (Streamlit App)
+
+🔗 [https://YOUR_STREAMLIT_APP_LINK_HERE](https://merchant-recommendation-clustering-tsqrzsgaoiymfwj3cip9xx.streamlit.app/)
 
 ## 📊 Model Overview
 
