@@ -1,0 +1,33 @@
+# =====================
+# Virtual environment
+# =====================
+venv/
+
+# =====================
+# Python cache
+# =====================
+__pycache__/
+*.pyc
+**/__pycache__/
+
+# =====================
+# Jupyter
+# =====================
+.ipynb_checkpoints/
+
+# =====================
+# Editor / OS
+# =====================
+.vscode/
+.DS_Store
+
+# =====================
+# Model artifacts (root-level safety)
+# =====================
+preprocess.joblib
+
+# =====================
+# Optional: large or derived data (keep if you want)
+# =====================
+# data/raw/*.csv
+# data/preprocessed/*.csv
