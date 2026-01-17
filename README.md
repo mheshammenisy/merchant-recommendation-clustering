@@ -9,7 +9,7 @@ The project covers data cleaning, feature engineering, preprocessing pipelines, 
 ---
 # 🚀 Live Demo (Streamlit App)
 
-🔗  [Open Live Streamlit App](https://merchant-recommendation-clustering.streamlit.app)
+🔗  [Open Live Streamlit App] https://merchant-recommendation-clustering-tsqrzsgaoiymfwj3cip9xx.streamlit.app/
 
 
 ## 📊 Model Overview
